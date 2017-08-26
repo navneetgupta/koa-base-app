@@ -21,6 +21,11 @@ module.exports.getBooks = async (ctx,next) => {
         }]};
     await next();
 };
+module.exports.getIndex = async (ctx,next) => {
+    if(!ctx.locals) ctx.locals = {};
+    ctx.locals.data1 = "Hi There!!!";
+    await next();
+};
 
 module.exports.completeRequest = async (ctx,next) => {
     if(ctx.locals.data1) {
