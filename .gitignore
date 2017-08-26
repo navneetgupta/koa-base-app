@@ -1,0 +1,6 @@
+nohup.log
+.DS_Store
+.idea/
+.settings/
+.project
+node_modules/
