@@ -3,9 +3,9 @@
  */
 
 const settings = {
-    host: '127.0.0.1',
-    port: process.env.NODE_PORT ||3010,
-    apiHost:process.env.API_HOST ||  'http://localhost:8080',
+    host: process.env.HOST,
+    port: process.env.NODE_PORT || 3010,
+    apiHost:process.env.API_HOST,
     secretKey:process.env.SECRET_KEY
 };
 

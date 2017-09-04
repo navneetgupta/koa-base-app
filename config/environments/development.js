@@ -5,10 +5,10 @@
 'use strict';
 
 const configs = {
-    apiHost: process.env.API_HOST ||  'http://localhost:8080',
+    apiHost: process.env.API_HOST,
     redis: {
-        host: '127.0.0.1',
-        port: 6379
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT
     }
 };
 

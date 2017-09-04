@@ -40,7 +40,7 @@ module.exports.completeRequest = async (ctx) => {
 };
 
 module.exports.getServicesList = async (ctx,next) => {
-    ctx.module = createReqModule('/lookup/everything',null);
+    ctx.module = createReqModule(process.env.SERVICE_PATH,process.env.AUTH_TOKEN_DEFAULT);
     await next();
 };
 

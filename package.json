@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.1.0",
+    "dotenv": "^4.0.0",
     "fs": "^0.0.1-security",
     "glob": "^7.1.2",
     "koa": "^2.3.0",

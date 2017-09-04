@@ -4,3 +4,4 @@ nohup.log
 .settings/
 .project
 node_modules/
+.env
