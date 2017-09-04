@@ -3,6 +3,10 @@
  */
 'use strict';
 
+const apiSettings = require('../../lib/apiCallChain/apiConfigs'),
+    path = require('path'),
+    config = require(path.resolve('config/config'));
+
 module.exports.getBooks = async (ctx,next) => {
     if(!ctx.state) ctx.state = {};
     ctx.state.data1 = {
@@ -28,8 +32,27 @@ module.exports.getIndex = async (ctx,next) => {
     await next();
 };
 
-module.exports.completeRequest = async (ctx,next) => {
+module.exports.completeRequest = async (ctx) => {
     if(ctx.state.data1) {
+        console.log("response goit ");
         ctx.body = ctx.state.data1;
     }
 };
+
+module.exports.getServicesList = async (ctx,next) => {
+    ctx.module = createReqModule('/lookup/everything',null);
+    await next();
+};
+
+
+function createReqModule(apiPath,authToken) {
+    const module = {
+        apiMethod: 'get',
+        apiParams: {},
+        apiPath: apiPath,
+        apiHeaders:authToken,
+        preProcessor: function(req,res) {console.log('Inside pre processor');},
+        postProcessor: function(req,res) {console.log('Inside post processor');}
+    };
+    return apiSettings.initModules(module);
+}
